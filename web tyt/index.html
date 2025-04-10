@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marmolería TYT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #8B5C2D;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      background-color: #3c2f23;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: white;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #8B5C2D;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .producto {
+      background-color: #2f2f2f;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .producto:hover {
+      transform: scale(1.05);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .producto-info {
+      padding: 15px;
+    }
+
+    .producto-info h3 {
+      margin-bottom: 5px;
+    }
+
+    .producto-info p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #3c2f23;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="templates/3.png" alt="Logo Marmolería TYT" width="150">
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <h1>MARMOLERÍA T Y T</h1>
+    <p>Especialistas en mármol y granito, creando espacios únicos con materiales de primera calidad.</p>
+  </section>
+
+  <section class="catalogo" id="catalogo">
+    <div class="producto" onclick="verProducto('producto1')">
+      <img src="templates/1.png" alt="Producto 1">
+      <div class="producto-info">
+        <h3>Mármol Blanco</h3>
+        <p>Ideal para cocinas y baños. Alta resistencia.</p>
+      </div>
+    </div>
+    <div class="producto" onclick="verProducto('producto2')">
+      <img src="templates/2.png" alt="Producto 2">
+      <div class="producto-info">
+        <h3>Granito Negro</h3>
+        <p>Perfecto para exteriores y superficies resistentes.</p>
+      </div>
+    </div>
+    <!-- Agrega más productos si querés -->
+  </section>
+
+  <footer id="contacto">
+    <p>© 2025 Marmolería T Y T - Todos los derechos reservados</p>
+    <p>Contacto: contacto@tytmarmoleria.com</p>
+  </footer>
+
+  <script>
+    function verProducto(nombre) {
+      alert("Mostrando detalles del " + nombre);
+    }
+  </script>
+</body>
+</html>
