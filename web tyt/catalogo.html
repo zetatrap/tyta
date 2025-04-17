@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo Neon</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .card {
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      backface-visibility: hidden;
+      border: 2px solid #0ff;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #111;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+
+    .card-front {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .card img,
+    .card video {
+      width: 100%;
+      border-radius: 10px;
+      max-height: 200px;
+      object-fit: cover;
+    }
+
+    .descripcion {
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .precio {
+      font-size: 1.2rem;
+      color: #0ff;
+      text-align: center;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comprar-btn {
+      padding: 0.8rem 1.5rem;
+      background: #000;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      border: 2px solid #0ff;
+      border-radius: 30px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .comprar-btn::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, #0ff, #00faff, #0ff);
+      animation: neon-rotate 3s linear infinite;
+      z-index: 0;
+      filter: blur(8px);
+    }
+
+    .comprar-btn span {
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes neon-rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Catálogo</h1>
+  <div class="catalogo">
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="templates/FULL HD WALPA.png" alt="Producto 1" />
+          <div class="descripcion">Logo 3D Animado para canal gamer.</div>
+          <div class="precio">$1500</div>
+        </div>
+        <div class="card-back">
+          <button class="comprar-btn"><span>Comprar</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <video src="templates/INTRO OFICIAL.mp4" autoplay muted loop></video>
+          <div class="descripcion">Intro animada para músico urbano.</div>
+          <div class="precio">$2000</div>
+        </div>
+        <div class="card-back">
+          <button class="comprar-btn"><span>Comprar</span></button>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Más cards -->
+  </div>
+</body>
